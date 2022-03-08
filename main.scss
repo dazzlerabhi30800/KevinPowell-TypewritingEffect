@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+
+$typewriter-speed : 6s;
+$typewriter-steps : 29;
+
+* {
+    margin : 0;
+    padding : 0;
+    box-sizing : border-box;
+}
+
+body {
+    min-height : 100vh;
+    display : grid;
+    place-content : center;
+    text-align : center;
+    background : rgb(201, 196, 196);
+   
+}
+
+h1 {
+    font-size : clamp(1rem, 3vw, 4rem);
+    position : relative;
+    font-family: 'Source Code Pro', monospace;
+    width : max-content;
+}
+h1::before,
+h1::after {
+    content : "";
+    position : absolute;
+    top : 0;
+    right : 0;
+    bottom : 0;
+    left : 1rem;
+}
+
+h1::before {
+    background  : rgb(201, 196, 196);
+    animation : 
+                 typewriter $typewriter-speed steps($typewriter-steps) 1s forwards;
+                
+}
+
+h1::after {
+    width: .115em;
+    background : rgb(48, 47, 47);
+    animation : 
+            typewriter $typewriter-speed steps($typewriter-steps) 1s forwards,
+            blink 500ms steps(29) infinite;
+    // left : .5rem
+}
+
+@keyframes typewriter {
+    to {
+        left : 100%;
+    }
+}
+@keyframes blink {
+    to {
+        background : transparent;
+    }
+}
+
+.subtitle {
+    // color : hsl(0 0% 0% / 0.7);
+    color :rgb(95, 93, 93);
+    font-size : 2rem;
+    font-weight : 400;
+    margin-top : 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity : 0;
+    transform : translateY(3rem);
+    animation : fadeInUp 2s ease 8s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity : 1;
+        transform : translateY(0);
+    }
+}
